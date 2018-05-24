@@ -17,21 +17,23 @@
 		}
 
 		function playRound(playerSelection, computerSelection) {
-
 			const messageString = 'You chose ' + playerSelection + ' and the computer chose ' + computerSelection + ', ';
-
 			if (playerSelection === computerSelection) return messageString + 'it\'s a draw!'
-
 				if (	
 					((playerSelection === 'rock') && (computerSelection === 'scissors')) || 
 					((playerSelection === 'paper') && (computerSelection === 'rock')) || 
 					((playerSelection === 'scissors') && (computerSelection ==='paper'))
 					) 
 					return messageString + 'you win!'
-
 				return messageString + 'you lose!'
-
 			}
+
+			function game() {
+				choice = prompt('Enter rock, paper, or scissors');
+				alert(roundSelection(choice));
+			}
+
+			console.log(game());
 		</script>
 	</body>
 	</html>
