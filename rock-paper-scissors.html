@@ -5,6 +5,8 @@
 <body>
 	<script>
 		let rpcArray = ['rock', 'paper', 'scissors'];
+		let playerScore = 0;
+		let computerScore = 0;
 
 		function computerPlay() {
 			return rpcArray[Math.floor(Math.random() * rpcArray.length)];
@@ -16,6 +18,8 @@
 			return playRound(playerSelection, computerSelection);
 		}
 
+
+
 		function playRound(playerSelection, computerSelection) {
 			const messageString = 'You chose ' + playerSelection + ' and the computer chose ' + computerSelection + ', ';
 			if (playerSelection === computerSelection) return messageString + 'it\'s a draw!'
@@ -24,8 +28,13 @@
 					((playerSelection === 'paper') && (computerSelection === 'rock')) || 
 					((playerSelection === 'scissors') && (computerSelection ==='paper'))
 					) 
-					return messageString + 'you win!'
-				return messageString + 'you lose!'
+					{
+					  ++playerScore;
+					  return messageString + 'you win!';
+					} 
+						++computerScore;
+						return messageString + 'you lose!';
+					
 			}
 
 			function game() {
@@ -33,7 +42,20 @@
 				alert(roundSelection(choice));
 			}
 
-			console.log(game());
+			
+		while ((playerScore < 5) && (computerScore < 5)) {
+			game()
+		}
+
+		if (playerScore === 5) {
+			alert('You win!')
+		} else {
+			alert('You lose!');
+		}
+		
+			
+
+			//console.log(game());
 		</script>
 	</body>
 	</html>
