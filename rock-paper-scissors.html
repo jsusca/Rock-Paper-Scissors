@@ -8,12 +8,12 @@
 		let playerScore = 0;
 		let computerScore = 0;
 
-		function computerPlay() {
+		function getComputerChoice() {
 			return rpcArray[Math.floor(Math.random() * rpcArray.length)];
 		}
-		function roundSelection(playerInput) {
+		function getRoundSelection(playerInput) {
 			playerSelection = playerInput.toLowerCase();
-			computerSelection = computerPlay();
+			computerSelection = getComputerChoice();
 			if ((playerInput !== 'rock') && (playerInput !== 'paper') && (playerInput !== 'scissors')) { 
 				return 'Please enter a valid input';
 			}
@@ -35,13 +35,13 @@
 						return messageString + 'you lose the round!';
 					
 			}
-			function game() {
+			function playGame() {
 				choice = prompt('Enter rock, paper, or scissors');
-				alert(roundSelection(choice));
+				alert(getRoundSelection(choice));
 			}
 			
 		while ((playerScore < 5) && (computerScore < 5)) {
-			game()
+			playGame()
 		}
 		if (playerScore === 5) {
 			alert('You win the game!')
